@@ -37,6 +37,9 @@ app.use("/technologies", technologiesRouter);
 // Маршрутизация для проектов с применением middleware для проверки токена
 app.use("/projects", checkToken, projectsRouter);
 
+// Настройка статического файлового сервера
+app.use(express.static("public"));
+
 // Обработка ошибок
 app.use((err, req, res, next) => {
   console.error(err.stack);

@@ -14,19 +14,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    firstname: {
+    name: {
       type: String,
       minlength: 2,
       maxlength: 100,
-    },
-    lastname: {
-      type: String,
-      minlength: 2,
-      maxlength: 100,
-    },
-    date: {
-      type: Date,
-      default: Date.now,
     },
   },
   {

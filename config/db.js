@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://root:12345@localhost:27017/project_api", {});
+mongoose.connect(
+  "mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}?authSource=admin",
+  {}
+);
 
 const db = mongoose.connection;
 

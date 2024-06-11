@@ -7,6 +7,8 @@ async function register(req, res) {
   const { username, email, password } = req.body;
 
   try {
+    console.log("Регистрация пользователя:", username, email); // Логирование данных
+
     // Проверяем, существует ли пользователь с таким email
     const existingUser = await User.findOne({ email });
     if (existingUser) {
@@ -27,6 +29,7 @@ async function register(req, res) {
 
     res.status(201).json({ token });
   } catch (error) {
+    console.error("Ошибка при регистрации пользователя:", error); // Логирование ошибки
     res.status(500).json({ message: "Server error" });
   }
 }
@@ -52,6 +55,7 @@ async function login(req, res) {
 
     res.json({ token });
   } catch (error) {
+    console.error("Ошибка при авторизации пользователя:", error); // Логирование ошибки
     res.status(500).json({ message: "Server error" });
   }
 }
