@@ -1,0 +1,105 @@
+.experience {
+    max-width: 70%;
+    // height: 540px;
+    margin: 0 auto;
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+        align-items:center;
+        margin-top: 370px;
+        gap: 80px;
+    }
+
+    &__item {
+        width: 246px;
+        height: 200px;
+        border: 1px solid $fourth-color;
+        border-radius: 16px;
+    
+        &_img {
+            margin: 42px 83px 94px 91px;
+            border: 1px solid $third-color;
+            border-style: dashed;
+            width: 72px;
+            height: 64px;
+        }
+    }
+}
+
+.practice {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    color: $second-text-color;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px ;
+    color: $second-text-color;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 28px;
+    white-space: nowrap;
+}
+
+
+
+.descr {
+    margin-top: 32px;
+        &__container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-items: center;
+            align-items:center;
+            padding: 30px 0;
+            border-radius: 16px;
+            background: $fifth-color;
+            gap: 80px;
+        }
+
+        &__title {
+            margin-top: 20px;
+            color: $text-color;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 19px;
+            white-space: nowrap;
+        }
+
+        &__heading {
+            color: $text-color;
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 38px;
+        }
+}
+
+@media screen and (max-width: 767px) {
+
+    .experience {
+        margin-top: 5px;
+    }
+
+    .experience__items {
+        display: grid !important;
+        grid-template-columns: repeat(1, 1fr) !important; 
+    }
+
+    .descr {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .experience {
+        position: relative;
+        bottom: 200px;
+        left: 10px;
+    }
+}

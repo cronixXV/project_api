@@ -1,0 +1,78 @@
+.aboutme {
+    margin-top: 100px;
+    display: flex;
+    // width: 455px;
+    // height: 500px;
+    &__icon {
+        display: flex;
+        flex-direction: column;
+        align-items:flex-start;
+        justify-content: flex-start;
+    }
+    }
+
+.me__icon {
+    width: 455px;
+    height: 500px;
+    margin-left: 140px;
+}
+
+.medescr {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        justify-content: end;
+        margin-left: 50px;
+    &__points {
+        width: 900px;
+        height: 400px;
+    }
+}
+
+.me {
+    color: $text-color;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    background: $second-color;
+    width: 160px;
+    height: 45px;
+}
+
+.me__article {
+    margin-bottom: 140px;
+    margin-right: 50px;
+    color: $third-color;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+@media screen and (max-width: 767px) {
+    .aboutme {
+        flex-wrap: wrap;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .me__icon {
+        margin-left: 85px;
+        margin-top: -190px;
+    }
+
+    .me {
+        margin-left: 160px;
+    }
+
+    .me__article {
+        margin-left: 30px;
+    }
+}
+

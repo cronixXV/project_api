@@ -1,0 +1,111 @@
+ul li a::before {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background-color:rgba(123, 74, 226, 0.5);
+}
+
+ul li a::before {
+    transform: scale(0, 1);
+    transition: transform .3s ease;
+}
+
+ul li a:hover::before {
+    transform: scale(1, 1);
+}
+
+
+li a.active,
+li a:hover {
+    color: rgba(123, 74, 226, 0.5);
+    transition: all .3s ease-in-out;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.resume__my.active,
+.resume__my:hover {
+    color: rgba(123, 74, 226, 0.5);
+    transition: all .3s ease-in-out;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.write__whatsapp.active,
+.write__whatsapp:hover {
+    transition: all .3s ease-in-out;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.experience__item.active,
+.experience__item:hover {
+    background: rgba(123, 74, 226, 0.1);
+    border: none;
+    transition: all .3s ease-in-out;
+}
+
+.btn__projects.active,
+.btn__projects:hover {
+    background: rgba(123, 74, 226, 0.1);
+    border: none;
+    transition: all .3s ease-in-out;
+}
+
+.btn__work.active,
+.btn__work:hover {
+    border-radius: 8px;
+    background: rgba(74, 226, 144, 0.3);
+    border: none;
+    transition: all .3s ease-in-out;
+}
+
+.btn__work_descr.active,
+.btn__work_descr:hover {
+    color: rgb(74, 226, 144);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 19px;
+    text-align: center;
+}
+
+.link__github.active,
+.link__github:hover {
+    color: rgba(123, 74, 226, 0.5);
+    font-size: 21px;
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+}
+
+.reach__whatsapp.active,
+.reach__whatsapp:hover {
+    transition: all .3s ease-in-out;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.mail__example.active,
+.mail__example:hover {
+    font-size: 21px;
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+}
+
+.mail__link .active,
+.mail__link:hover {
+    text-decoration: none;
+}
+
+.page__text.active,
+.page__text:hover {
+    font-size: 21px;
+    transition: all .3s ease-in-out;
+}
+
+.pageup__link.active,
+.pageup__link:hover {
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+}

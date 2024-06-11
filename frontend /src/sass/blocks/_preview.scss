@@ -1,0 +1,162 @@
+.preview__me {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    height: 189px;
+    padding-top: 191px;
+    padding-left: 140px;
+}
+
+ .hello {
+    color: $text-color;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    background: $fifth-color;
+    width: 160px;
+    height: 45px;
+ }
+
+ h1 {
+    color: $second-text-color;
+    font-family: Raleway;
+    font-size: 45px;
+    font-weight: 800;
+    line-height: 61px;
+    letter-spacing: 0%;
+    text-align: left;
+    padding-bottom: 16px;
+ }
+
+ .profession {
+    color: $third-color;
+    font-family: Raleway;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 23px;
+    letter-spacing: 0%;
+    text-align: justify;
+ }
+
+ .contacts {
+    width: 32px;
+    height: 32px;
+    padding-right: 16px;
+ }
+
+ .avatar {
+   display: flex;
+   flex-direction: column;
+   align-items:center;
+   justify-content: center;
+ }
+
+ .avataricon {
+   position: absolute;
+   margin-top: 300px;
+   margin-left: 40px;
+  }
+
+ .resume {
+   display: flex;
+   flex-direction: column;
+   align-items:end;
+   justify-content: end;
+   padding-top: 90px;
+ }
+
+ .resume__my {
+   padding-right: 110px;
+   color: $fourth-color;
+   font-family: Raleway;
+   font-size: 16px;
+   font-weight: 600;
+   line-height: 19px;
+   letter-spacing: 0%;
+   text-align: left;
+ }
+
+ .write__me {
+   width: 254px;
+   height: 44px;
+   margin-top: 9px;
+   margin-right: 110px;
+   color: $fourth-color;
+   background-color: $main-color;
+   box-sizing: border-box;
+   border: 1px solid $fourth-color;
+   border-radius: 16px;
+ }
+
+ .write__whatsapp {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: $fourth-color;
+   font-size: 16px;
+   font-weight: 600;
+   line-height: 19px;
+   letter-spacing: 0%;
+ }
+
+ @media screen and (max-width: 767px) {
+
+  .preview__article {
+    display: block;
+    margin-top: 360px;
+}
+
+.hello {
+  width: 120px !important;
+  font-size: 17px !important;
+}
+
+.profession {
+  display: none;
+
+}
+
+.resume {
+  margin-top: 300px;
+}
+ }
+
+ @media screen and (max-width: 575px) {
+
+  .cnts {
+    left: 40%;
+  }
+
+  .resume {
+    margin-top: 670px !important;
+    margin-right: 90px;
+  }
+
+  .write__me {
+    width: 160px;
+    height: 44px;
+  }
+
+  .write__whatsapp {    
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .hello {
+    margin-top: 50px;
+    width: 120px!important;
+    font-size: 17px!important;
+    margin-left: 85px;
+  }
+
+  h1 {
+    font-size: 35px;
+    margin-top: 10px;
+    margin-left: 90px;
+  }
+    
+ }
