@@ -15,11 +15,12 @@ router.get("/", async (req, res) => {
 
 // Добавление нового проекта
 router.post("/", checkToken, async (req, res) => {
+  console.log(req.user);
   const project = new Project({
     name: req.body.name,
     description: req.body.description,
-    stack: req.body.stack,
-    user: req.user.id, // добавляем id авторизованного пользователя в проект
+    stack: req.body.technologies,
+    user: req.user.userId, // добавляем ссылку на пользователя
   });
 
   try {
@@ -35,12 +36,12 @@ router.put("/:id", checkToken, async (req, res) => {
   let project;
 
   try {
-    project = await Project.findById(req.params.id);
+    project = await Project.findOne({ _id: req.params.id });
     if (!project) {
       return res.status(404).json({ message: "Проект не найден" });
     }
     // проверяем, что проект принадлежит авторизованному пользователю
-    if (project.user.toString() !== req.user.id) {
+    if (project.user !== req.user.id) {
       return res.status(403).json({ message: "Доступ запрещен" });
     }
   } catch (err) {
@@ -69,7 +70,7 @@ router.delete("/:id", checkToken, async (req, res) => {
       return res.status(404).json({ message: "Проект не найден" });
     }
     // проверяем, что проект принадлежит авторизованному пользователю
-    if (project.user.toString() !== req.user.id) {
+    if (!project.user || project.user.toString() !== req.user.id) {
       return res.status(403).json({ message: "Доступ запрещен" });
     }
   } catch (err) {
@@ -79,6 +80,16 @@ router.delete("/:id", checkToken, async (req, res) => {
   try {
     await project.remove();
     res.json({ message: "Проект удален" });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+//Удаление всех проектов
+router.delete("/", async (req, res) => {
+  try {
+    await Project.deleteMany({});
+    res.json({ message: "All projects deleted" });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

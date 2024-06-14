@@ -8,8 +8,10 @@ const authRouter = require("./routes/auth");
 const authMiddleware = require("./middlewares/authMiddleware");
 const passport = require("passport");
 const projectsRouter = require("./routes/projects"); // Добавил импорт projectsRouter
+const cors = require("cors");
 
 app.use(express.json());
+app.use(cors()); // разрешить всем доменам
 app.use(passport.initialize());
 
 // Middleware для проверки авторизации пользователя
@@ -48,5 +50,5 @@ app.use((err, req, res, next) => {
 
 // Запуск сервера
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running at http://localhost:${PORT}`);
 });

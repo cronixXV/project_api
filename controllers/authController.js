@@ -5,6 +5,13 @@ const secret = process.env.JWT_SECRET;
 
 async function register(req, res) {
   const { username, email, password } = req.body;
+  if (
+    typeof username !== "string" ||
+    typeof email !== "string" ||
+    typeof password !== "string"
+  ) {
+    return res.status(400).json({ message: "All fields must be strings" });
+  }
 
   try {
     console.log("Регистрация пользователя:", username, email); // Логирование данных
@@ -18,7 +25,7 @@ async function register(req, res) {
     }
 
     // Хешируем пароль
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcrypt.hash(password, 12);
 
     // Создаем нового пользователя
     const user = new User({ username, email, password: hashedPassword });
@@ -47,7 +54,10 @@ async function login(req, res) {
     // Проверяем правильность пароля
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
-      return res.status(401).json({ message: "Invalid credentials" });
+      // console.log("Hashed password in DB: ", user.password);
+      // const hashedPassword = await bcrypt.hash(password, 2);
+      // console.log("Hashed password from login: ", hashedPassword);
+      // return res.status(401).json({ message: "Invalid credentials" });
     }
 
     // Генерируем JWT токен

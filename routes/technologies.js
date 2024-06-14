@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const technologyController = require("../controllers/technologyController");
+const fs = require("fs");
+const path = require("path");
+
+const technologiesFilePath = path.join(__dirname, "../data/technologies.json");
 
 // Получение списка технологий
 router.get("/", async (req, res) => {
@@ -19,18 +23,17 @@ router.post("/", async (req, res) => {
     const technologies = await technologyController.readTechnologies();
     newTech.id = technologies.length + 1;
     technologies.push(newTech);
-    fs.writeFile(
+    if (!technologies) {
+      res.status(500).json({ error: "Internal server error" });
+      return;
+    }
+    await fs.promises.writeFile(
       technologiesFilePath,
-      JSON.stringify(technologies, null, 2),
-      (err) => {
-        if (err) {
-          res.status(500).json({ error: "Internal server error" });
-          return;
-        }
-        res.status(201).json(newTech);
-      }
+      JSON.stringify(technologies, null, 2)
     );
+    res.status(201).json(newTech);
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: "Internal server error" });
   }
 });

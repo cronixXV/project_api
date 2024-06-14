@@ -4,10 +4,17 @@ const errorMessage = document.getElementById("error-message");
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
+  const form = event.target;
   const formData = new FormData(form);
+  const username = formData.get("username");
+  const email = formData.get("email");
+  const password = formData.get("password");
   const response = await fetch("/api/auth/register", {
     method: "POST",
-    body: formData,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ username, email, password }),
   });
 
   if (!response.ok) {
