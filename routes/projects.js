@@ -40,8 +40,10 @@ router.put("/:id", checkToken, async (req, res) => {
     if (!project) {
       return res.status(404).json({ message: "Проект не найден" });
     }
+    console.log("Project user:", project.user);
+    console.log("Req user id:", req.user.id);
     // проверяем, что проект принадлежит авторизованному пользователю
-    if (project.user !== req.user.id) {
+    if (project.user.toString() !== req.user.id) {
       return res.status(403).json({ message: "Доступ запрещен" });
     }
   } catch (err) {
@@ -62,26 +64,19 @@ router.put("/:id", checkToken, async (req, res) => {
 
 // Удаление конкретного проекта
 router.delete("/:id", checkToken, async (req, res) => {
-  let project;
-
   try {
-    project = await Project.findById(req.params.id);
+    const project = await Project.findById(req.params.id);
     if (!project) {
       return res.status(404).json({ message: "Проект не найден" });
     }
-    // проверяем, что проект принадлежит авторизованному пользователю
-    if (!project.user || project.user.toString() !== req.user.id) {
+    if (project.user.toString() !== req.user.id) {
       return res.status(403).json({ message: "Доступ запрещен" });
     }
-  } catch (err) {
-    return res.status(500).json({ message: err.message });
-  }
-
-  try {
-    await project.remove();
+    await Project.deleteOne({ _id: req.params.id });
     res.json({ message: "Проект удален" });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    console.error(err);
+    res.status(500).json({ message: "Серверная ошибка" });
   }
 });
 
