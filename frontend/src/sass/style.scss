@@ -1,0 +1,25 @@
+@import "libs/bootstrap-reboot.min";
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import "base/variables";
+
+
+* {
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    // max-width: 1280px;
+}
+
+@import "blocks/animation";
+@import "blocks/aboutme";
+@import "blocks/menu";
+@import "blocks/works";
+@import "blocks/preview";
+@import "blocks/experience";
+@import "blocks/button";
+@import "blocks/stack";
+@import "blocks/reach";
+@import "blocks/footer";
+@import "blocks/general";

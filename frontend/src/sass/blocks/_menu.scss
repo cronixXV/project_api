@@ -1,0 +1,55 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    max-width: 85%;
+    height: 64px;
+    margin: 0 auto;
+    background-color: $second-color;
+    border-radius: 16px;
+    margin-top: 38px;
+}
+
+.logo {
+    display: flex;
+    align-items:center;
+    padding-left: 17px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding: 0;
+    background-color: none;
+    overflow: hidden;
+    margin-bottom: 0;
+    text-decoration: none;
+}
+
+li {
+    padding: 1.1rem;
+    float: left;
+}
+
+li a {
+    color: $third-color;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0%;
+}
+
+ul li a {
+    position: relative;
+}
+
+@media screen and (max-width: 767px) {
+    header {
+        display: none;
+    }
+    .cnts{
+        position: absolute;
+        top: 5%;
+        left: 43%;
+    }
+}

@@ -1,0 +1,175 @@
+.reach {
+    max-width: 85%;
+    margin: 0 auto;
+    margin-top: 141px;
+}
+
+.reach__me {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &_article {
+        margin-bottom: 28px;
+        color: $text-color;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 23px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 16px;
+        background: $fifth-color;
+        width: 160px;
+        height: 45px;
+    }
+    &_title {
+        margin-bottom: 64px;
+    }
+}
+
+.reach__btn {
+    position: relative;
+    margin-top: 111px;
+    margin-left: 340px;
+    width: 246px;
+    height: 60px;
+    background: $main-color;
+    box-sizing: border-box;
+    border: 1px solid $fourth-color;
+    border-radius: 16px;
+}
+
+.reach__whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $fourth-color;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19px;
+}
+
+.mail {
+    position: relative;
+    top: -105px;
+    margin-left: 700px;
+    &__icon {
+        width: 32px;
+        height: 32px;
+        margin-bottom: 7px;
+    }
+
+    &__article {
+        margin-top: 7px;
+        color: $text-color;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 23px;
+    }
+
+    &__example {
+        color: $third-color;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 23px;
+        text-decoration-line: underline;
+    }
+}
+
+
+.pageup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.page__text {
+    color: $fourth-color;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 23px;
+    text-align: left;
+}
+
+@media screen and (max-width: 767px) {
+
+    .reach {
+        margin-top: 5px;
+    }
+
+    .reach__me {
+        margin-right: 100px !important;
+        &_article {
+            margin-right: 395px !important;
+        }
+    }
+
+    .buttons {
+            position: relative;
+            right: 350px;
+            bottom: 150px
+        }
+
+    .mail {
+        position: relative;
+        right: 700px;
+        bottom: 150px
+    }
+    
+    .pageup {
+        position: relative;
+        right: 290px;
+        bottom: 50px
+    }
+
+}
+
+@media screen and (max-width: 575px) {
+    .reach {
+        margin-top: 0px;
+    }
+
+    .reach__me_article {
+        margin-left: 510px;
+    }
+
+    .reach__me_title {
+        margin-left: 210px;
+        text-wrap: nowrap;
+    }
+
+    .reach__btn {
+        position: relative;
+        left: 125px;
+    }
+
+    .mail__icon {
+       margin-left: 220px;
+    }
+
+    .mail__article {
+        margin-left: 205px;
+    }
+
+    .mail__link {
+        position: relative;
+        left: 122px;
+    }
+
+    .mail__img {
+        margin-left: 220px;
+        margin-top: 10px;
+    }
+
+    .pageup {
+        margin-left: 530px;
+    }
+
+    .pageup__arrow {
+        margin-top: 20px;
+        margin-left: 22px;
+    }
+}
