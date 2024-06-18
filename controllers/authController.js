@@ -54,10 +54,6 @@ async function login(req, res) {
     // Проверяем правильность пароля
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
-      // console.log("Hashed password in DB: ", user.password);
-      // const hashedPassword = await bcrypt.hash(password, 2);
-      // console.log("Hashed password from login: ", hashedPassword);
-      // return res.status(401).json({ message: "Invalid credentials" });
     }
 
     // Генерируем JWT токен

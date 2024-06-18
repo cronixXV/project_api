@@ -6,6 +6,20 @@ const path = require("path");
 
 const technologiesFilePath = path.join(__dirname, "../data/technologies.json");
 
+// Массив технологий, которые мы хотим отобразить на фронтенде
+const technologies = [
+  { name: "HTML5", icon: "icons/stack/HTML5.svg" },
+  { name: "CSS3", icon: "icons/stack/css.svg" },
+  { name: "JavaScript", icon: "icons/stack/Javascript.svg" },
+  { name: "Git", icon: "icons/stack/git.svg" },
+  { name: "Node.js", icon: "icons/stack/Nodejs.svg" },
+  { name: "React", icon: "icons/stack/react.svg" },
+];
+
+router.get("/", (req, res) => {
+  res.json(technologies);
+});
+
 // Получение списка технологий
 router.get("/", async (req, res) => {
   try {

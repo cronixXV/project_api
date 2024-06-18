@@ -89,6 +89,39 @@
     <meta name="theme-color" content="#ffffff" />
     <link rel="stylesheet" href="css/style.min.css" />
     <script>
+      function init() {
+        fetch("/technologies")
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Failed to fetch technologies");
+            }
+            return response.json();
+          })
+          .then((technologies) => {
+            // отображаем только те значки и названия, которые отправил сервер
+            const techContainer = document.querySelector(".img__stack");
+            techContainer.innerHTML = "";
+            technologies.forEach((tech) => {
+              const techElement = document.createElement("div");
+              techElement.classList.add("img__stack_icon");
+              techElement.innerHTML = `<img src="${tech.icon}" alt="${tech.name}">`;
+              techContainer.appendChild(techElement);
+            });
+          })
+          .catch((error) => {
+            console.error(error);
+            // если сервер ничего не отправил, добавляем все, что есть в верстке
+            const techIcons = document.querySelectorAll(".img__stack_icon");
+            const techContainer = document.querySelector(".img__stack");
+            techContainer.innerHTML = "";
+            techIcons.forEach((techIcon) => {
+              techContainer.appendChild(techIcon.cloneNode(true));
+            });
+          });
+      }
+
+      window.addEventListener("DOMContentLoaded", init);
+
       window.onload = function () {
         document
           .querySelector(".pageup__link")
@@ -421,6 +454,7 @@
       </div>
 
       <div class="img__stack">
+        <div class="img__stack-item"></div>
         <img
           class="img__stack img__stack_icon"
           src="icons/stack/react.svg"
