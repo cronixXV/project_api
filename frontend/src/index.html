@@ -98,7 +98,7 @@
             return response.json();
           })
           .then((technologies) => {
-            // отображаем только те значки и названия, которые отправил сервер
+            // отображаем только те иконки и названия, которые отправил сервер
             const techContainer = document.querySelector(".img__stack");
             techContainer.innerHTML = "";
             technologies.forEach((tech) => {
@@ -110,17 +110,8 @@
           })
           .catch((error) => {
             console.error(error);
-            // если сервер ничего не отправил, добавляем все, что есть в верстке
-            const techIcons = document.querySelectorAll(".img__stack_icon");
-            const techContainer = document.querySelector(".img__stack");
-            techContainer.innerHTML = "";
-            techIcons.forEach((techIcon) => {
-              techContainer.appendChild(techIcon.cloneNode(true));
-            });
           });
       }
-
-      window.addEventListener("DOMContentLoaded", init);
 
       window.onload = function () {
         document
@@ -132,6 +123,8 @@
               behavior: "smooth",
             });
           });
+
+        init();
       };
     </script>
   </head>
